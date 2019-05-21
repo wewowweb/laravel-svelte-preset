@@ -3,8 +3,8 @@
 namespace Wewowweb\LaravelSveltePreset;
 
 use Illuminate\Support\Arr;
-use Illuminate\Foundation\Console\Presets\Preset;
 use Illuminate\Support\Facades\File;
+use Illuminate\Foundation\Console\Presets\Preset;
 
 class SveltePreset extends Preset
 {
@@ -20,13 +20,13 @@ class SveltePreset extends Preset
         return array_merge([
             'svelte' => '^3.1.0',
             'laravel-mix-svelte' => '^0.1.0',
-            'svelte-loader' => '^2.13.4'], 
+            'svelte-loader' => '^2.13.4', ],
         Arr::except($packages, [
             '@babel/preset-react',
             'react',
             'react-dom',
             'vue',
-            'vue-template-compiler'
+            'vue-template-compiler',
         ]));
     }
 
