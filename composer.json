@@ -1,0 +1,53 @@
+{
+    "name": "wewowweb/laravel-svelte-preset",
+    "description": "Svelte frontend preset for Laravel.",
+    "keywords": [
+        "svelte",
+        "laravel",
+        "laravel-svelte-preset",
+        "we wow web"
+    ],
+    "homepage": "https://github.com/wewowweb/laravel-svelte-preset",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Gal Jakic",
+            "email": "gal@wewowweb.com",
+            "role": "Author"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wewowweb\\LaravelSveltePreset\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Wewowweb\\LaravelSveltePreset\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wewowweb\\LaravelSveltePreset\\LaravelSveltePresetServiceProvider"
+            ]
+        }
+    }
+}
