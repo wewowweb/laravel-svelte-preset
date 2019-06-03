@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-svelte-preset` will be documented in this file
 
-## v.0.1 - 2019-05-19
+## v.0.1.1 - 2019-06-03
+- Add nunomaduro/larastan as dev dependency
 
-- initial release
+## v.0.1.0 - 2019-05-19
+
+- Initial release
