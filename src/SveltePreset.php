@@ -10,9 +10,11 @@ class SveltePreset extends Preset
 {
     public static function install()
     {
+        static::ensureComponentDirectoryExists();
         static::updatePackages();
         static::updateMix();
         static::updateScripts();
+        static::removeNodeModules();
     }
 
     public static function updatePackageArray($packages)
