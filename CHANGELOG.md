@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-svelte-preset` will be documented in this file
 
+## v0.1.4 - 2019-10-22
+
+- Add LaravelSveltePresetInstallCommandTest
+
 ## v0.1.3 - 2019-09-09
 
 - Add support for Laravel 6.x
