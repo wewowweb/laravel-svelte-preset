@@ -3,11 +3,9 @@
 namespace Wewowweb\LaravelSveltePreset\Tests;
 
 use Orchestra\Testbench\TestCase;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\File;
 use Wewowweb\LaravelSveltePreset\LaravelSveltePresetServiceProvider;
 
-class LaravelSveltePresetInstallCommandTest extends TestCase 
+class LaravelSveltePresetInstallCommandTest extends TestCase
 {
     /** Overrides the getPackageProviders
      *  to load the custom package service provider.
@@ -28,6 +26,4 @@ class LaravelSveltePresetInstallCommandTest extends TestCase
 
         $this->assertFileExists(resource_path('js/components/App.svelte'));
     }
-
 }
-
