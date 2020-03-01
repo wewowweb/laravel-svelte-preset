@@ -7,12 +7,13 @@
 
 require('./bootstrap');
 
+/**
+ * Register your svelte components here.
+ * Component name must be two or more words joined by the '-' character e.g. 'my-app'.
+ * Components can be accessed in blade file like a regular html tag e.g. <my-app></my-app>
+ * note: closing tag is necessary because its a web component.
+ */
+
 import App from "./components/App.svelte";
 
-const app = new App({
-  target: document.body
-});
-
-window.app = app;
-
-export default app;
+customElements.define('my-app', App);

@@ -13,5 +13,8 @@ require('laravel-mix-svelte');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-.sass('resources/sass/app.scss', 'public/css')
-.svelte();
+    .sass('resources/sass/app.scss', 'public/css')
+    .svelte({
+        customElement: true,
+        tag: null
+    });
