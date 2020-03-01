@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-svelte-preset` will be documented in this file
 
+## v0.1.5 - 2020-03-01
+
+- Add support for custom elements out of the box
+
 ## v0.1.4 - 2019-10-22
 
 - Add LaravelSveltePresetInstallCommandTest
