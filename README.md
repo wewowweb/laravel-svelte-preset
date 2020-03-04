@@ -39,17 +39,104 @@ needed to start developing with Laravel & Svelte.
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         ...
+        <!-- Include the app.js file -->
+        <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body>
         <!-- Include your App Component -->
         <App />
-
-        <!-- Include the app.js file -->
-        <script src="/js/app.js"></script>
     </body>
 </html>
 ```
 
+### Registering Custom Svelte Components
+
+Please follow these general conventions when creating your custom components:
+ * Component name must be two or more words joined by the '-' character e.g. 'my-test-component'.
+ * Components can be accessed in blade file like a regular html tag e.g. `<my-test-component></my-test-component>`
+ * Closing tag is necessary because its a web component.
+
+If you wish to register a custom component and use it within your `blade.php` files, you can do it like so: 
+
+#### Step 1: Create a New Custom Component
+Let's create a new Svelte Component (e.g. MyTestComponent.svelte)
+
+```html
+<script>
+
+</script>
+
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">My Test Component</div>
+                    <div class="card-body">
+                        I'm a test component.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+```
+
+#### Step 2: Modify The `webpack.mix.js`file
+
+Modifiy the `webpack.mix.js` file like so:
+
+```diff
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+-   .svelte();    
++   .svelte({
++       customElement: true,
++       tag: null
++   });
+```
+#### Step 3: Import the component to your app.js
+Then within your `àpp.js` file, import the MyTestComponent like so:
+
+```diff
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Svelte and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Svelte and Laravel.
+ */
+
+require('./bootstrap');
+
+import App from "./components/App.svelte";
++ import MyTestComponent from "./components/MyTestComponent.svelte";
+
+const app = new App({
+  target: document.body
+});
+
+window.app = app;
+
++ customElements.define('my-test-component', MyTestComponent); 
+export default app;
+```
+
+#### Step 4: Use the new component in your `blade.php`file
+
+```diff
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        ...
+        <!-- Include the app.js file -->
+        <script src="{{ mix('js/app.js') }}" defer></script>
+    </head>
+    <body>
+        <!-- Include your App Component -->
+        <App />
++       <my-test-component></my-test-component>
+    </body>
+</html>
+```
 
 ### Changelog
 
