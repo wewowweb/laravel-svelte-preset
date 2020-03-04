@@ -2,7 +2,7 @@
 
 namespace Wewowweb\LaravelSveltePreset;
 
-use Illuminate\Foundation\Console\Presets\Preset;
+use Laravel\Ui\Presets\Preset;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 
