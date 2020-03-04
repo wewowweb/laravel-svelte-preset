@@ -22,7 +22,7 @@
         "illuminate/support": "^5.8|^6.0|^7.0"
     },
     "require-dev": {
-        "laravel/ui": "1.2.0",
+        "laravel/ui": "1.2.0|^2.0",
         "nunomaduro/larastan": "^0.4",
         "orchestra/testbench": "^3.8|^4.0|^5.0",
         "phpunit/phpunit": "^8.0"
