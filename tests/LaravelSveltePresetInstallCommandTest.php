@@ -14,7 +14,7 @@ class LaravelSveltePresetInstallCommandTest extends TestCase
     {
         return [
             LaravelSveltePresetServiceProvider::class,
-         ];
+        ];
     }
 
     /** @test */

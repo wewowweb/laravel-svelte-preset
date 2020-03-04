@@ -2,8 +2,8 @@
 
 namespace Wewowweb\LaravelSveltePreset;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Console\PresetCommand;
+use Illuminate\Support\ServiceProvider;
 
 class LaravelSveltePresetServiceProvider extends ServiceProvider
 {
