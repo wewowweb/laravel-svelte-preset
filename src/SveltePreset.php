@@ -2,9 +2,9 @@
 
 namespace Wewowweb\LaravelSveltePreset;
 
-use Laravel\Ui\Presets\Preset;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
+use Laravel\Ui\Presets\Preset;
 
 class SveltePreset extends Preset
 {
