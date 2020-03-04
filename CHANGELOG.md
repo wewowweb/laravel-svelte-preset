@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-svelte-preset` will be documented in this file
 
+## v0.1.6 - 2020-03-04
+
+- Fix PresetCommand dependency
+
 ## v0.1.5 - 2020-03-04
 
 - Add support for Laravel 7.x
