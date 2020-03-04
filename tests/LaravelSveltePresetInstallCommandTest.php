@@ -22,7 +22,7 @@ class LaravelSveltePresetInstallCommandTest extends TestCase
     {
         $this->withoutMockingConsoleOutput();
 
-        $this->artisan('preset svelte');
+        $this->artisan('ui svelte');
 
         $this->assertFileExists(resource_path('js/components/App.svelte'));
     }
