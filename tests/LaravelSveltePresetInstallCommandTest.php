@@ -2,9 +2,9 @@
 
 namespace Wewowweb\LaravelSveltePreset\Tests;
 
+use Laravel\Ui\UiServiceProvider;
 use Orchestra\Testbench\TestCase;
 use Wewowweb\LaravelSveltePreset\LaravelSveltePresetServiceProvider;
-use Laravel\Ui\UiServiceProvider;
 
 class LaravelSveltePresetInstallCommandTest extends TestCase
 {
@@ -15,7 +15,7 @@ class LaravelSveltePresetInstallCommandTest extends TestCase
     {
         return [
             UiServiceProvider::class,
-            LaravelSveltePresetServiceProvider::class
+            LaravelSveltePresetServiceProvider::class,
         ];
     }
 
