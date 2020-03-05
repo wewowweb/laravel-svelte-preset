@@ -19,7 +19,7 @@ composer require wewowweb/laravel-svelte-preset
 ```
 After that, run the following command, which will provide you with the initial scaffolding of the project:
 ```bash
-php artisan preset svelte
+php artisan ui svelte
 ```
 To install the JavaScript dependencies, run:
 ```bash
