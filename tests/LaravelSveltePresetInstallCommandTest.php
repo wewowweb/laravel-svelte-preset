@@ -4,6 +4,7 @@ namespace Wewowweb\LaravelSveltePreset\Tests;
 
 use Orchestra\Testbench\TestCase;
 use Wewowweb\LaravelSveltePreset\LaravelSveltePresetServiceProvider;
+use Laravel\Ui\UiServiceProvider;
 
 class LaravelSveltePresetInstallCommandTest extends TestCase
 {
@@ -13,7 +14,8 @@ class LaravelSveltePresetInstallCommandTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            LaravelSveltePresetServiceProvider::class,
+            UiServiceProvider::class,
+            LaravelSveltePresetServiceProvider::class
         ];
     }
 
@@ -22,7 +24,7 @@ class LaravelSveltePresetInstallCommandTest extends TestCase
     {
         $this->withoutMockingConsoleOutput();
 
-        $this->artisan('preset svelte');
+        $this->artisan('ui svelte');
 
         $this->assertFileExists(resource_path('js/components/App.svelte'));
     }
