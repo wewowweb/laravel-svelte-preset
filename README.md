@@ -143,7 +143,7 @@ customElements.define('my-test-component', MyTestComponent);
 - export default app;
 ```
 
-#### Step 4: Use the new component in your `blade.php`file
+#### Step 5: Use the new component in your `blade.php`file
 
 ```diff
 <!DOCTYPE html>
