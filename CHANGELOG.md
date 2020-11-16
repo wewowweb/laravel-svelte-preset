@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-svelte-preset` will be documented in this file
 
+## v0.1.8 - 2020-11-16
+
+- Fix broken tests for PresetCommand
+
 ## v0.1.7 - 2020-03-05
 
 - Fix broken tests for PresetCommand
