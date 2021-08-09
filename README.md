@@ -22,30 +22,34 @@ _This package is still in active development, so you might want to [watch](https
 
 # So Lets see, how we are going set this up for a brand new Laravel-8.x and Svelte-3.x Project.
 
-#### Setp-1: Create New Laravel-8.x Or Skip to [Step-2](Setp-2)
+#### Setp-1: Create New Laravel-8.x Or Skip to Next Step
 
 ```bash
 composer create-project laravel/laravel laravel-svelte-app
 
 cd laravel-svelte
+
 ```
 
 #### Setp-2: Install the package via composer:
 
 ```bash
 composer require wewowweb/laravel-svelte-preset
+
 ```
 
 #### Setp-3: Scaffolding Svelte Preset in the project:
 
 ```bash
 php artisan ui svelte
+
 ```
 
 #### Setp-4: Install the JavaScript dependencies, run:
 
 ```bash
 npm install && npm run dev
+
 ```
 
 #### The package will provide initial files needed for project base :
