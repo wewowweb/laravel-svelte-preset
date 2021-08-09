@@ -4,23 +4,21 @@ A Laravel-8 frontend Svelte-3 preset for initial Svelte scaffolding Laravel Proj
 
 ## Why Svelte-3 killer fontend framework?
 
-* This is already the killer fontend framework in 2021, And It's going to kill Angular,Vue,React...blah blah.. blha.
-*  Where Vue taken my weeks of stu4dy to just see, how a button-counter component works ! Damn It ! and the Svelte Just Took Few Hours to Create same this with less code and cleaner concept. Yeah I'm slow learner. I did some C#.net Project with Desktop Form-App with C#.net Components. So, I Was finding similar to something like that for my web projects with a minimum efforts to setup & Develop.
-*  
-*  Component in Svelte works like Vb.net/C#.net Desktop Application Components. This is how much crazy things happening here !!!
+- This is already the killer fontend framework in 2021, And It's going to kill Angular,Vue,React...etc by 2025. 
+-  Component in Svelte works like Vb.net/C#.net Desktop Application Components. This is how much crazy things happening here !!!
 
 
 ## Interesting new approaches in frontend family
-* Svelte is an interesting new approach in the JavaScript space, created by [@Rich_Harris](https://twitter.com/Rich_Harris). 
-* While traditional frontend frameworks do the bulk of their work in the browser, Svelte does this in compilation step.
-* They provide a fluid syntax for writing expressive code, but compile it down to small, framework-less vanilla JavaScript.
+- Svelte is an interesting new approach in the JavaScript space, created by [@Rich_Harris](https://twitter.com/Rich_Harris). 
+- While traditional frontend frameworks do the bulk of their work in the browser, Svelte does this in compilation step.
+- They provide a fluid syntax for writing expressive code, but compile it down to small, framework-less vanilla JavaScript.
 
 
 If you don't know what Svelte is, we highly recommend starting with Rich Harris' talk [Rethinking Reactivity](https://youtu.be/AdNJ3fydeao) from YGLF Code Camp 2019, his [introductory blog post](https://svelte.dev/blog/svelte-3-rethinking-reactivity) or - if you're more of a hands-on type - Svelte's [interactive tutorial](https://svelte.dev/tutorial/).
 
 _This package is still in active development, so you might want to [watch](https://github.com/wewowweb/laravel-svelte-preset/subscription) the repository to be notified of future changes._
 
-# So Lets see, how we are going set this up for a brand new Laravel-8.x and Svelte-3.x Project.
+#### So Lets see, how we are going set this up for a brand new Laravel-8.x and Svelte-3.x Project.
 
 #### Setp-1: Create New Laravel-8.x Or Skip to Next Step
 
@@ -58,32 +56,72 @@ npm install && npm run dev
 - `/js/components/App.svelte`
 - `webpack.mix.js`
 
-#### Setp-5: ### Now We need to ready up Laravel & Svelte.
+#### Setp-5: ### Ready up Laravel View `index.blade.php`.
 
-### Usage 
+Create File: `resources\views\index.blade.php`
 
 ```html
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-  <head>
-    <title>The New Laravel-8 and Svelte-3 App</title>
-    <!-- Include the app.css file -->
-     <link rel="stylesheet" href="{{ mix('css/css.js') }}">
-    <!-- Include the app.js file -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The New laravel-8 And Svelte-3 App</title>
+
+    {{-- Bootstrap 5 Vapor --}}
+    <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
+
+    {{--  App.css --}}
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+    {{--  App.js --}}
     <script src="{{ mix('js/app.js') }}" defer></script>
-  </head>
-  <body>
-    <!-- Include your App Component -->
-    <App />
-  </body>
+
+</head>
+<body>
+	<div class="container">
+     {{-- Svelte App Component --}}
+     <App />
+  </div>
+</body>
 </html>
+
+```
+
+#### Setp-6: ### Ready up Svelte App Component `App.svelte`.
+Create File: `resources\js\components\App.svelte` 
+
+```html
+<script>
+	import { onMount } from "svelte";
+
+  
+	onMount(() => {
+	  console.log("The App is Mounted");
+	});
+</script>
+
+<main>
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<div class="card">
+					<div class="card-header">Svelte App Component</div>
+					<div class="card-body">
+						This is the App Component
+					</div>
+				</div>
+			</div>
+		</div>
+</main>
+
 ```
 
 ### Registering Custom Svelte Components
 
 ###### If you wish to use custom components, note you cannot use regular svelte components.Doing so will result in an invalid constructor error for the svelte component.
 
-#### Creating your custom components:
+###### Creating your custom components:
 
 - Component name must be two or more words joined by the '-' character e.g. `'my-test-component'`.
 - Components can be accessed in blade file like a regular html tag e.g. `<my-test-component />`
@@ -91,21 +129,68 @@ npm install && npm run dev
 - See The instructions below for more detail guidence.
 
 
-## To register a custom component and use it in your `blade.php` :
+### To register a custom component and use it in your Svelte App :
 
-#### Step 1: Create a New Custom Component (e.g. MyTestComponent.svelte)
+#### Step 1: Create a New Custom Btn Component 
+Create File: `resources\js\components\ui-kits\Btn.svelte`
 
 ```html
 <script>
 let count=0 
 </script>
 
-<button on:click={() => count++}>
+<button class="btn btn-success" on:click={() => count++}>
  Button Clicked {count} Time(s)
 </button>
 ```
-{updated to here}
-#### Step 2: Modify The `webpack.mix.js`file :
+
+#### Step 2: Import that Custom `Btn` Component in `App` Component for Local Scope Only
+*** Note: `Btn` Component Will abe abailable only for `App` component***
+```html
+<script>
+import Btn from './ui-kits/Btn.svelte';
+  // Other Codes
+</script>
+
+<!-- Other Codes -->
+<Btn />
+
+<!-- Other Codes -->
+```
+
+***Now your `App.svelte` file will look like this***
+`App` Component : `resources\js\components\App.svelte`
+
+```html
+<script>
+	import Btn from './ui-kits/Btn.svelte';
+	import { onMount } from "svelte";
+
+	onMount(() => {
+	  console.log("The App is Mounted");
+	});
+</script>
+
+<main>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<div class="card">
+					<div class="card-header">Svelte App Component</div>
+					<div class="card-body">
+						This is the App Component
+             <hr>
+             <Btn />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+```
+
+```updated to here```
+#### Step 3: Modify The `webpack.mix.js`file :
 
 ```diff
 mix.js('resources/js/app.js', 'public/js')
@@ -117,7 +202,7 @@ mix.js('resources/js/app.js', 'public/js')
 +   });
 ```
 
-#### Step 3: Import the component to your app.js
+#### Step 3: Import the component to your `app.js` for globally use in app
 
 Then within your `àpp.js` file, import the MyTestComponent like so:
 
@@ -125,7 +210,7 @@ Then within your `àpp.js` file, import the MyTestComponent like so:
 require('./bootstrap');
 
 import App from "./components/App.svelte";
-+ import MyTestComponent from "./components/MyTestComponent.svelte";
+import MyTestComponent from "./components/MyTestComponent.svelte";
 
 const app = new App({
   target: document.body
