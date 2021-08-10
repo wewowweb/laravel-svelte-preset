@@ -1,10 +1,10 @@
-# Laravel-8.x and Svelte-3.x frontend Preset
+# Laravel Svelte Preset
 
-Follow this guide to create Laravel-8 and Svelte-3 frontend preset scaffolded Laravel-8.x Project.
+A Laravel-8 frontend Svelte-3 preset for initial Svelte scaffolding Laravel Project.
 
-## Why Svelte, the killer fontend framework?
+## Why Svelte-3.x , the killer fontend framework?
 
-_It's even Faster than React,Vue,Angular etc.. Even if you consider Jquery as a Framework, well it's even faster than JQuery !!!_
+_It's Faster than React,Vue,Angular etc.. Even if you consider Jquery as a Framework, well it's even faster than JQuery !!!_
 
 - This is already the killer fontend framework in 2021, And It's going to kill Angular,Vue,React...etc by 2025.
 - Component in Svelte works like `Vb.net/C#.net` Desktop Application Components.
