@@ -37,13 +37,13 @@ class SveltePreset extends Preset
 
     public static function updateMix()
     {
-        copy(__DIR__ . '/stubs/webpack.mix.js', base_path('webpack.mix.js'));
+        copy(__DIR__.'/stubs/webpack.mix.js', base_path('webpack.mix.js'));
     }
 
     public static function updateScripts()
     {
-        copy(__DIR__ . '/stubs/app.js', resource_path('js/app.js'));
+        copy(__DIR__.'/stubs/app.js', resource_path('js/app.js'));
         File::cleanDirectory(resource_path('js/components'));
-        copy(__DIR__ . '/stubs/App.svelte', resource_path('js/components/App.svelte'));
+        copy(__DIR__.'/stubs/App.svelte', resource_path('js/components/App.svelte'));
     }
 }
