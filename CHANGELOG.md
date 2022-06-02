@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-svelte-preset` will be documented in this file
 
+## v0.2.1 - 2021-06-02
+
+- Add support for Laravel 9
+- Add support for PHP 8
+- Update Github Actions
+
 ## v0.2 - 2021-11-16
 
 - Fix issues with Mix 6 & Webpack 5
