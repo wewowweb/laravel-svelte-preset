@@ -6,6 +6,7 @@ All notable changes to `laravel-svelte-preset` will be documented in this file
 
 - Add support for Laravel 9
 - Add support for PHP 8
+- Update Github Actions
 
 ## v0.2 - 2021-11-16
 
