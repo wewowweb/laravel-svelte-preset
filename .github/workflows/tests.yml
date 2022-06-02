@@ -12,7 +12,7 @@ jobs:
                 php: [8.1, 8.0, 7.4, 7.3, 7.2]
                 laravel: [9.*, 8.*, 7.*, 6.*, 5.8.*]
                 dependency-version: [prefer-lowest, prefer-stable]
-                os: [ubuntu-latest, windows-latest]
+                os: [ubuntu-latest]
                 include:
                     - laravel: 9.*
                       testbench: 7.*
@@ -42,7 +42,18 @@ jobs:
 
         steps:
             - name: Checkout code
-              uses: actions/checkout@v1
+              uses: actions/checkout@v3
+
+            - name: Get Composer Cache Directory
+              id: composer-cache
+              run: |
+                echo "::set-output name=dir::$(composer config cache-files-dir)"
+            - uses: actions/cache@v3
+              with:
+                path: ${{ steps.composer-cache.outputs.dir }}
+                key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-composer-
 
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
